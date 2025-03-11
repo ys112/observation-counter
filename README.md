@@ -1,54 +1,43 @@
-# React + TypeScript + Vite
+# Observation Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application for recording and tracking behavioral observations with timed sessions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create custom counters for different behaviors
+- Record observations with a configurable timer
+- Save observation sessions
+- View previous sessions
+- Export data to CSV
 
-## Expanding the ESLint configuration
+## Usage Instructions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Creating Counters**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   - Enter a behavior name in the "Counter Name" field
+   - Click "Add Counter" to create a new counter
+   - Repeat for each behavior you want to track
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Setting up the Timer**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   - Adjust "Record Time" for observation duration (in seconds)
+   - Adjust "Rest Time" for break duration (in seconds)
+   - Settings can only be changed when timer is stopped
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+3. **Recording Observations**
+
+   - Click "Start Timer" to begin recording
+   - Use the "+" button to count each occurrence of a behavior
+   - Use the "-" button to correct mistakes
+   - Counters are only active during recording phase
+   - Timer will automatically switch between record and rest periods
+
+4. **Saving Sessions**
+
+   - Click "Save Session" to store the current counts
+   - All counters will reset to 0 after saving
+   - Previous sessions are displayed in the table below
+
+5. **Exporting Data**
+   - Click "Export CSV" to download all sessions
+   - The CSV file includes dates, durations, and counts for all behaviors
